@@ -200,7 +200,7 @@ def root():
         async function startJob(dataset) {{
           const log = document.getElementById("log");
           const vietnameseToggle = document.getElementById("vietnameseTranslation");
-          const isVietnameseMode = vietnameseToggle.checked;
+          const isVietnameseMode = vietnameseToggle ? vietnameseToggle.checked : false;
           
           log.innerHTML = "⏳ Starting job for <b>" + dataset + "</b>" + (isVietnameseMode ? " with Vietnamese translation" : "") + "...";
           try {{
@@ -240,7 +240,7 @@ def root():
         async function startRagJob(dataset) {{
           const log = document.getElementById("log");
           const vietnameseToggle = document.getElementById("vietnameseTranslation");
-          const isVietnameseMode = vietnameseToggle.checked;
+          const isVietnameseMode = vietnameseToggle ? vietnameseToggle.checked : false;
           
           log.innerHTML = "⏳ Starting RAG processing for <b>" + dataset + "</b>" + (isVietnameseMode ? " with Vietnamese translation" : "") + "...";
           try {{

@@ -99,7 +99,7 @@ def _validate_vi_translation(original: str, translated: str) -> bool:
     # If no Vietnamese characters but significantly different from original, accept it
     # (some translations might not have Vietnamese diacritics)
     if len(translated) > len(original) * 0.5 and len(translated) < len(original) * 2.0:
-        return True
+    return True
     
     return False
 
@@ -155,7 +155,7 @@ def translate_sft_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                     logger.debug(f"  Are they the same? {original == translated}")
                     
                     # Validate and sanitize translated field
-                    if _validate_vi_translation(original, translated):
+                if _validate_vi_translation(original, translated):
                         translated_sft[field] = _vi_sanitize_text(translated)
                         logger.debug(f"✅ Successfully translated field '{field}'")
                         # Add success statistics if stats available
@@ -172,7 +172,7 @@ def translate_sft_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                 except Exception as e:
                     logger.error(f"Failed to translate field '{field}': {e}")
                     translated_sft[field] = sft_data[field]
-            else:
+                else:
                 # Keep original if field doesn't exist or is empty
                 translated_sft[field] = sft_data.get(field, "")
         
@@ -233,7 +233,7 @@ def translate_rag_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                     logger.debug(f"  Are they the same? {original == translated}")
                     
                     # Validate and sanitize translated field
-                    if _validate_vi_translation(original, translated):
+                if _validate_vi_translation(original, translated):
                         translated_row[field] = _vi_sanitize_text(translated)
                         logger.debug(f"✅ Successfully translated RAG field '{field}'")
                         # Add success statistics if stats available
@@ -250,7 +250,7 @@ def translate_rag_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                 except Exception as e:
                     logger.error(f"Failed to translate RAG field '{field}': {e}")
                     translated_row[field] = row[field]
-            else:
+                else:
                 # Keep original if field doesn't exist or is empty
                 translated_row[field] = row.get(field, "")
         
