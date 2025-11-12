@@ -159,12 +159,12 @@ def root():
         <h2>⚡ Quick Actions</h2>
         <p>Click a button below to start processing a dataset with default augmentation parameters.</p>
         
-        <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #2d89ef;">
-          <label style="display: flex; align-items: center; cursor: pointer;">
-            <input type="checkbox" id="vietnameseTranslation" style="margin-right: 8px; transform: scale(1.2);">
-            <strong>🇻🇳 Vietnamese Translation</strong> - Translate all content to Vietnamese before processing
-          </label>
-        </div>
+        <!-- <div style="margin-bottom: 15px; padding: 10px; background: #f8f9fa; border-radius: 5px; border-left: 4px solid #2d89ef;">
+           <label style="display: flex; align-items: center; cursor: pointer;">
+             <input type="checkbox" id="vietnameseTranslation" style="margin-right: 8px; transform: scale(1.2);">
+             <strong>🇻🇳 Vietnamese Translation</strong> - Translate all content to Vietnamese before processing
+           </label>
+        </div> -->
         
         <button onclick="startJob('healthcaremagic')">▶ProcAugment HealthCareMagic (100k)</button><br>
         <button onclick="startJob('icliniq')">▶ProcAugment iCliniq (10k-derived)</button><br>
