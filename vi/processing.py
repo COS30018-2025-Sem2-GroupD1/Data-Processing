@@ -155,7 +155,7 @@ def translate_sft_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                     logger.debug(f"  Are they the same? {original == translated}")
                     
                     # Validate and sanitize translated field
-                if _validate_vi_translation(original, translated):
+                    if _validate_vi_translation(original, translated):
                         translated_sft[field] = _vi_sanitize_text(translated)
                         logger.debug(f"✅ Successfully translated field '{field}'")
                         # Add success statistics if stats available
@@ -173,8 +173,8 @@ def translate_sft_row(row: Dict[str, Any], translator, text_fields: List[str] = 
                     logger.error(f"Failed to translate field '{field}': {e}")
                     translated_sft[field] = sft_data[field]
                 else:
-                # Keep original if field doesn't exist or is empty
-                translated_sft[field] = sft_data.get(field, "")
+                    # Keep original if field doesn't exist or is empty
+                    translated_sft[field] = sft_data.get(field, "")
         
         # Update the translated row
         translated_row["sft"] = translated_sft
