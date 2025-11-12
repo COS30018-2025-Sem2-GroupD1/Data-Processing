@@ -99,7 +99,7 @@ def _validate_vi_translation(original: str, translated: str) -> bool:
     # If no Vietnamese characters but significantly different from original, accept it
     # (some translations might not have Vietnamese diacritics)
     if len(translated) > len(original) * 0.5 and len(translated) < len(original) * 2.0:
-    return True
+        return True
     
     return False
 

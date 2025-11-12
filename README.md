@@ -1,17 +1,17 @@
 ---
-title: MedVietAI Processing
+title: Medical Processing
 emoji: ⚕️
 colorFrom: green
 colorTo: pink
 sdk: docker
 pinned: false
 license: apache-2.0
-short_description: Data processing with en-vi translation. Derived from 500k mi
+short_description: Data processing. Derived from 500k medical knowledge mix
 ---
 
 ## 🚀 Quick Access
 
-[HF Space](https://huggingface.co/spaces/MedVietAI/processing)
+[HF Space](https://huggingface.co/spaces/MedSwin/medai-processing)
 
 [MedDialog-100k](https://huggingface.co/datasets/MedAI-COS30018/MedDialog-EN-100k)
 
@@ -38,12 +38,12 @@ short_description: Data processing with en-vi translation. Derived from 500k mi
 - **Response Validation**: Invalid response detection and retry logic (max 3 attempts)
 - **Quality Guards**: Length/semantic validation for backtranslation outputs
 
-### 🇻🇳 Vietnamese Translation
+<!-- ### 🇻🇳 Vietnamese Translation
 - **Complete Translation**: All text fields translated when Vietnamese mode is enabled
 - **Quality Validation**: Translation quality checks with fallback to original text
 - **SFT Format**: `instruction`, `input`, `output` fields translated
 - **RAG Format**: `question`, `answer`, `context` fields translated
-- **Sanitization**: Repetition reduction and whitespace normalization
+- **Sanitization**: Repetition reduction and whitespace normalization -->
 
 ### 📊 SFT Data Enrichment
 - **Multiple Answer Variants**: 2-3 different answers per question for better reasoning
@@ -125,7 +125,7 @@ The system tracks comprehensive statistics:
 ## 🔧 Usage
 
 ### Web Interface
-1. Visit the [HF Space](https://huggingface.co/spaces/MedVietAI/processing)
+1. Visit the [HF Space](https://huggingface.co/spaces/MedSwin/medai-processing)
 2. Select dataset and processing mode (SFT/RAG)
 3. Enable Vietnamese translation if needed
 4. Click process button
@@ -133,7 +133,7 @@ The system tracks comprehensive statistics:
 ### API Usage
 ```bash
 # SFT Processing with Vietnamese translation
-curl -X POST "https://huggingface.co/spaces/MedVietAI/processing/process/healthcaremagic" \
+curl -X POST "https://huggingface.co/spaces/MedSwin/medai-processing/process/healthcaremagic" \
   -H "Content-Type: application/json" \
   -d '{
     "augment": {
@@ -149,7 +149,7 @@ curl -X POST "https://huggingface.co/spaces/MedVietAI/processing/process/healthc
   }'
 
 # RAG Processing
-curl -X POST "https://huggingface.co/spaces/MedVietAI/processing/rag/healthcaremagic" \
+curl -X POST "https://huggingface.co/spaces/MedSwin/medai-processing/rag/healthcaremagic" \
   -H "Content-Type: application/json" \
   -d '{
     "vietnamese_translation": true
