@@ -40,6 +40,7 @@ def snip(s: str, n: int = 12) -> str:
 
 class KeyRotator:
     def __init__(self, env_prefix: str, max_keys: int = 5):
+        self.env_prefix = env_prefix  # Store as instance variable
         keys = []
         for i in range(1, max_keys + 1):
             v = os.getenv(f"{env_prefix}_{i}")
@@ -82,7 +83,7 @@ class KeyRotator:
             return k
             
         # All keys are dead or temporarily unavailable
-        logger.warning(f"[LLM] All keys for {env_prefix} are unavailable")
+        logger.warning(f"[LLM] All keys for {self.env_prefix} are unavailable")
         return None
 
     def mark_bad(self, key: Optional[str], error_type: str = "unknown"):
